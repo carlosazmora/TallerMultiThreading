@@ -24,7 +24,7 @@ public class CustomThreadExample {
             return Math.random() < 0.5 ? "Peso correcto." : "Error: peso excesivo.";
         };
 
-        // Lista de tareas para ejecutar en paralelo
+        // Lista de tareas
         List<Callable<String>> tasks = Arrays.asList(verificarPeso);
         if(verificarPeso.equals("Peso correcto.")){
             tasks = Arrays.asList(dispensarProducto);
