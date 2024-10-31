@@ -34,14 +34,16 @@ public class CustomThreadExample {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         try {
-            // Verifica el peso del producto
+            //Envía tareas al Executor. Se ejecutan simultáneamente
+            Future<String> resultadoDispensado = executor.submit(dispensarProducto);
             Future<String> resultadoPeso = executor.submit(verificarPeso);
+
+            // Verifica el peso del producto
             String pesoResultado = resultadoPeso.get(); // Reporta el resultado de verificarPeso
             System.out.println(pesoResultado);
 
             // Revisa si el peso es correcto y dispensa el producto en ese caso
             if ("Peso correcto.".equals(pesoResultado)) {
-                Future<String> resultadoDispensado = executor.submit(dispensarProducto);
                 System.out.println(resultadoDispensado.get()); // Imprime el resultado obtenido de dispensarProducto
             } else {
                 System.out.println("No se dispensó el producto debido a peso incorrecto.");
