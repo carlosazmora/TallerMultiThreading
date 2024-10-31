@@ -42,8 +42,8 @@ public class CustomThreadExample {
             System.out.println(pesoResultado);
 
             // Revisa si el peso es correcto y dispensa el producto en ese caso
-            Future<String> resultadoDispensado = executor.submit(dispensarProducto);
             if ("Peso correcto.".equals(pesoResultado)) {
+                Future<String> resultadoDispensado = executor.submit(dispensarProducto);
                 System.out.println(resultadoDispensado.get()); // Imprime el resultado obtenido de dispensarProducto
             } else {
                 System.out.println("No se dispensó el producto debido a peso incorrecto.");
