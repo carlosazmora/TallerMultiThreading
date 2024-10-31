@@ -34,7 +34,7 @@ public class CustomThreadExample {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         try {
-            //Envía tareas al Executor. Se ejecutan simultáneamente
+            // Envía tareas al Executor. Se ejecutan simultáneamente
             Future<String> resultadoDispensado = executor.submit(dispensarProducto);
             Future<String> resultadoPeso = executor.submit(verificarPeso);
 
