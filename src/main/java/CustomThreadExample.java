@@ -21,7 +21,7 @@ public class CustomThreadExample {
         Callable<String> verificarPeso = () -> {
             System.out.println("Verificando peso...");
             Thread.sleep(500); // Simulación del tiempo de verificación
-            return Math.random() > 0.5 ? "Peso correcto." : "Error: peso incorrecto.";
+            return Math.random() < 0.5 ? "Peso correcto." : "Error: peso excesivo.";
         };
 
         // Lista de tareas para ejecutar en paralelo
@@ -46,7 +46,7 @@ public class CustomThreadExample {
                 Future<String> resultadoDispensado = executor.submit(dispensarProducto);
                 System.out.println(resultadoDispensado.get()); // Imprime el resultado obtenido de dispensarProducto
             } else {
-                System.out.println("No se dispensó el producto debido a peso incorrecto.");
+                System.out.println("No se dispensó el producto debido a peso excesivo.");
             }
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
